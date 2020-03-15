@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  alpine_top:
+    image: alpine:3.11
+    command: "top"
+
+  alpine_vmstat:
+    image: alpine:3.11
+    command: "tail -f /proc/vmstat"
+ 
+  alpine_watch:
+    image: alpine:3.11
+    command: "watch -n 120 date"
