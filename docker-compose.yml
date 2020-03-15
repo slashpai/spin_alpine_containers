@@ -4,11 +4,26 @@ services:
   alpine_top:
     image: alpine:3.11
     command: "top"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: docker_logs
 
   alpine_vmstat:
     image: alpine:3.11
     command: "tail -f /proc/vmstat"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: docker_logs
  
   alpine_watch:
     image: alpine:3.11
     command: "watch -n 120 date"
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: docker_logs
